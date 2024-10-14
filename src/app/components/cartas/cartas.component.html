@@ -1,0 +1,24 @@
+@defer (when apiData) {
+  <div class="container-fluid p-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center">Pokemon Cards</h1>
+
+        @for (carta of apiData.data; track $index) {
+          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-7 my-4">
+            <div class="card">
+                <img [src]="carta.images.small" class="card-img-top" [alt]="carta.name">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{carta.name}}</h5>                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Artist: </strong> {{carta.artist}} </li>
+                  <li class="list-group-item"><strong>HP: </strong>{{carta.hp}} </li>
+                </ul>
+              </div>
+            </div>
+
+        }
+
+    </div>
+  </div>
+}

@@ -1,0 +1,23 @@
+@defer (when apiData) {
+  <div class="container-fluid p-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center">Weapons</h1>
+
+        @for (arma of apiData; track arma.id) {
+            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-7 my-4">
+            <div class="card">
+                <img [src]="arma.assets?.image" class="card-img-top" [alt]="arma.name">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{arma.name}}</h5>                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Weapon type: </strong> {{arma.type}} </li>
+                  <li class="list-group-item"><strong>Rarity: </strong>{{arma.rarity}} </li>
+                </ul>
+              </div>
+            </div>
+          
+        }
+      </div>
+    </div>
+}

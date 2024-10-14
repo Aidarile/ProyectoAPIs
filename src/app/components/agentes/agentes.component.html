@@ -1,0 +1,22 @@
+@defer (when apiData) {
+  <div class="container-fluid p-5">
+    <div class="row justify-content-center">
+      <h1 class="text-center">Valorant</h1>
+
+        @for (agente of apiData.data; track $index) {
+          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-7 my-4">
+            <div class="card border-light card text-bg-secondary mb-3">
+                <img [src]="agente.displayIcon" class="card-img-top" [alt]="agente.displayName">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{agente.displayName}}</h5>                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Developer name: </strong> {{agente.developerName}} </li>
+                  <li class="list-group-item"><strong>Description: </strong>{{agente.description}} </li>
+                </ul>
+              </div>
+            </div>
+        }
+    </div>
+  </div>
+}

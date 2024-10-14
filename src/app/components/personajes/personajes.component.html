@@ -1,0 +1,25 @@
+@defer (when apiData) {
+  <div class="container-fluid p-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center">Final Space</h1>
+
+        @for (personaje of apiData; track personaje.id) {
+          <div class="col-xl-2 col-lg-4 col-md-6 col-sm-7 my-4">
+            <div class="card">
+                <img [src]="personaje.img_url" class="card-img-top" [alt]="personaje.name">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{personaje.name}}</h5>                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><strong>Gender: </strong> {{personaje.gender}} </li>
+                  <li class="list-group-item"><strong>Status: </strong>{{personaje.status}} </li>
+                  <li class="list-group-item"><strong>Origin: </strong>{{personaje.origin}} </li>
+                </ul>
+              </div>
+            </div>
+
+        }
+
+    </div>
+  </div>
+}
