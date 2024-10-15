@@ -1,5 +1,4 @@
 .card img {
-    opacity: 0.6;
     border: solid transparent 2px;
     border-radius: 20px;
     transition-duration: 0.4s;
@@ -10,6 +9,9 @@
     border: solid white 2px;
     cursor: pointer;
     transform: scale(1.05);
-    transition-duration: 0.8s;
+    transition-duration: 1s;
   }
   
+  .card {
+    border-radius: 18px;
+  }
