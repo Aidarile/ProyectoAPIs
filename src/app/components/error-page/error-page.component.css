@@ -1,0 +1,20 @@
+.errorcat img {
+    width: 500px;
+    height: auto;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.custom-button {
+    background-color: #805096;
+    color: white;
+    border: solid 1px white;
+}
+
+.custom-button:hover {
+    background-color: #555; 
+    color: white; 
+}

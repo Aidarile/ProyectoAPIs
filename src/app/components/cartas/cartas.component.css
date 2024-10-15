@@ -6,7 +6,7 @@
   
   .card img:hover {
     opacity: 1;
-    border: solid white 2px;
+    border: solid white 5px;
     cursor: pointer;
     transform: scale(1.05);
     transition-duration: 1s;
