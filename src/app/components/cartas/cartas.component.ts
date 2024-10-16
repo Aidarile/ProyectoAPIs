@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CardsService } from '../../services/cards.service';
-import { InterfaceCartas } from '../../common/interface-cartas';
+import { Card, InterfaceCartas } from '../../common/interface-cartas';
 
 @Component({
   selector: 'app-cartas',
@@ -10,8 +10,8 @@ import { InterfaceCartas } from '../../common/interface-cartas';
   styleUrl: './cartas.component.css'
 })
 export class CartasComponent {
-  private cardService : CardsService = inject(CardsService);
-  apiData!: InterfaceCartas;
+  private readonly cardService : CardsService = inject(CardsService);
+  coleccionCartas: Card[] = [];
 
   constructor() {
     this.loadCards();
@@ -20,7 +20,7 @@ export class CartasComponent {
   private loadCards() {
     this.cardService.getCards().subscribe( {
       next: (value: InterfaceCartas) => {
-        this.apiData = value;
+        this.coleccionCartas = value.data;
       },
       error: err => {
         alert(err.message);

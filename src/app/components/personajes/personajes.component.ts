@@ -1,17 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, NgModule } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
-import { InterfacePersonajes } from '../../common/interface-personajes';
+import { Personaje } from '../../common/interface-personajes';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-personajes',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './personajes.component.html',
   styleUrl: './personajes.component.css'
 })
 export class PersonajesComponent {
-  private charService : CharactersService = inject(CharactersService);
-  apiData!: InterfacePersonajes;
+  private readonly charService : CharactersService = inject(CharactersService);
+  personajes : Personaje[] = [];
 
   constructor() {
     this.loadCharacters();
@@ -19,8 +20,8 @@ export class PersonajesComponent {
 
   private loadCharacters() {
     this.charService.getCharacters().subscribe( {
-      next: (value: InterfacePersonajes) => {
-        this.apiData = value;
+      next: (value: Personaje[]) => {
+        this.personajes = value;
       },
       error: err => {
         alert(err.message);
@@ -30,5 +31,4 @@ export class PersonajesComponent {
       }
     })
   }
-
 }

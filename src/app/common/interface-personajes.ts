@@ -1,6 +1,6 @@
-export type InterfacePersonajes = personajes[]
+export type InterfacePersonajes = Personaje[]
 
-export interface personajes {
+export interface Personaje {
 
   id: number
   name: string
@@ -12,6 +12,5 @@ export interface personajes {
   origin: string
   abilities: string[]
   img_url: string
+  mostrarMas: boolean
 }
-
-
