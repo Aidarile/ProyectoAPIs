@@ -7,7 +7,7 @@ import { InterfaceCartas } from '../common/interface-cartas';
   providedIn: 'root'
 })
 export class CardsService {
-  private http: HttpClient = inject(HttpClient);
+  private readonly http: HttpClient = inject(HttpClient);
   private readonly URL = "https://api.pokemontcg.io/v2/cards/";
 
   constructor() { }

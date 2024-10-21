@@ -2,6 +2,10 @@ export interface InterfaceAgentes {
     status: number
     data: Agent[]
   }
+  export interface InterfaceAgent {
+    status: number
+    data: Agent
+  }
   
   export interface Agent {
     uuid: string

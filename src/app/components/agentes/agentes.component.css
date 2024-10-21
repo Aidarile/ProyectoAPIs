@@ -9,4 +9,12 @@
 
 .card {
     border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.card:hover {
+    border: solid var (--bs-primary) 1px;
+    transform: scale(1.03);
+    transition-duration: 0.8s;
+    cursor: pointer;
 }

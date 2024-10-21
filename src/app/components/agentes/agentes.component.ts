@@ -1,3 +1,4 @@
+import { RouterLink } from '@angular/router';
 import { InterfaceAgentes } from '../../common/interface-agentes';
 import { AgentsService } from './../../services/agents.service';
 import { Component, inject } from '@angular/core';
@@ -5,7 +6,7 @@ import { Component, inject } from '@angular/core';
 @Component({
   selector: 'app-agentes',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './agentes.component.html',
   styleUrl: './agentes.component.css'
 })
