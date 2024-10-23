@@ -26,7 +26,7 @@
     
     @for (arma of armas; track arma.id) {
       <div class="col-md-3 my-2">
-        <div class="card">
+        <div class="card" [routerLink]="'/monsterhunter-detail/' + arma.id">
           <div class="card-header bg-secondary">
             <div class="card-title">
               <h3>{{arma.name}}</h3>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Arma } from '../common/interface-armas';
+import { Arma, InterfaceArmas } from '../common/interface-armas';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,11 @@ export class WeaponsService {
 
   constructor() { }
 
-  getWeapons() : Observable<Arma[]> {
-    return this.http.get<Arma[]>(this.URL);
+  getWeapons() : Observable<InterfaceArmas> {
+    return this.http.get<InterfaceArmas>(this.URL);
+  }
+
+  getWeapon(id: number): Observable<Arma> {
+    return this.http.get<Arma>(this.URL+id);
   }
 }

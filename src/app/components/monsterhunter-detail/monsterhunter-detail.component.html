@@ -1,1 +1,29 @@
-<p>monsterhunter-detail works!</p>
+@defer (when arma) {
+    <div class="card shadow mt-5">
+        <div class="card-header bg-primary-subtle">
+            <div class="card-title text-center py-2 px-1">
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <h5> {{arma.name}} </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-fluid p-3 rounded-circle" src="{{arma.assets?.image}}" alt="{{arma.name}}">
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Weapon type: </strong>
+                        <span class="text-primary"> {{arma.type}} </span>
+                    </p>
+                    <p class="card-text">
+                        <strong></strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { WeaponsService } from '../../services/weapons.service';
 import { Arma } from '../../common/interface-armas';
 import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-armas',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, RouterLink],
   templateUrl: './armas.component.html',
   styleUrl: './armas.component.css'
 })
@@ -24,7 +25,9 @@ export class ArmasComponent {
         this.armas = value;
       },
       error: err => {
-        alert(err.message);
+        console.log(err);
+        
+        //alert(err.message);
       },
       complete: () => {
         console.log('Armas cargadas!')
