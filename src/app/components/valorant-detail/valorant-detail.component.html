@@ -1,44 +1,77 @@
 @defer (when agent) {
-    <div class="card shadow mt-5">
-        <div class="card-header bg-primary-subtle">
-            <div class="card-title text-center py-2 px-1">
-                <div class="row justify-content-center">
-                    <div class="col-10">
-                        <h5> {{agent.displayName}} </h5>
-                    </div>
-                </div>
-            </div>
+<div class="card shadow mt-5">
+  <div class="card-header bg-primary-subtle">
+    <div class="card-title text-center py-2 px-1">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <h5>{{ agent.displayName }}</h5>
         </div>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img class="img-fluid p-3 rounded-circle" src="{{agent.displayIcon}}" alt="{{agent.displayName}}">
-            </div>
-            <div class="col-md-4">
-                <div class="card-body">
-                    <p class="card-text">
-                        <strong>Developer Name: </strong>
-                        <span class="text-primary">{{agent.developerName}}</span>
-                    </p>
-                    <p class="card-text">
-                        <strong>Description: </strong>
-                        <span class="text-primary">{{agent.description}}</span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-body">
-                    <div class="accordion" id = "accordionLoc">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type = "button"
-                                data-bs-toggle="collapse" data-bs-target="collapseAcc"
-                                aria-expended="false" aria-controls="collapseAcc">
-                            Texto a mostrar</button>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img
+        class="img-fluid p-3 rounded-circle"
+        src="{{ agent.displayIcon }}"
+        alt="{{ agent.displayName }}"
+      />
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <p class="card-text">
+          <strong>Developer Name: </strong>
+          <span class="text-primary">{{ agent.developerName }}</span>
+        </p>
+        <p class="card-text">
+          <strong>Description: </strong>
+          <span class="text-primary">{{ agent.description }}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <div class="accordion" id="accordionLoc">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseAcc"
+                aria-expended="false"
+                aria-controls="collapseAcc">
+                Habilidades
+              </button>
+            </h2>
+            <div
+              id="collapseAcc"
+              data-bs-parent="#accordionLoc"
+              class="accordion-collapse collapse"
+            >
+              <div class="accordion-body overflow-y-scroll">
+                <ul>
+                  @for (item of agent.abilities; track item) {
+                  <li class="list-group-item small">
+                    <strong>{{ item.displayName }}:</strong>
+                    {{ item.description }}
+                  </li>
+                  <hr>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card-footer text-end">
+        {{ agent.uuid }}
+      </div>
+    </div>
+  </div>
+</div>
+} @placeholder (minimum 500ms) {
+<h2 class="text-center text-primary">Loading ...</h2>
 }
