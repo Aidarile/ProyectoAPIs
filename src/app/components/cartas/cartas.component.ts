@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { CardsService } from '../../services/cards.service';
 import { Card, InterfaceCartas } from '../../common/interface-cartas';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cartas',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cartas.component.html',
   styleUrl: './cartas.component.css'
 })

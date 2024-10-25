@@ -20,10 +20,59 @@
                         <span class="text-primary"> {{arma.type}} </span>
                     </p>
                     <p class="card-text">
-                        <strong></strong>
+                        <strong>Rarity: </strong>
+                        <span class="text-primary"> {{arma.rarity}} </span>
                     </p>
+                    <p class="card-text">
+                        <strong>Attack: </strong>
+                        <span class="text-primary"> {{arma.attack.display}} </span>
+                    </p>                    
                 </div>
             </div>
-        </div>
-    </div>
-}
+            <div class="col-md-4">
+                <div class="card-body">
+                  <div class="accordion" id="accordionLoc">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseAcc"
+                          aria-expended="false"
+                          aria-controls="collapseAcc">
+                          Elements
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseAcc"
+                        data-bs-parent="#accordionLoc"
+                        class="accordion-collapse collapse"
+                      >
+                        <div class="accordion-body overflow-y-scroll">
+                          <ul>
+                            @for (item of arma.elements; track item) {
+                            <li class="list-group-item small">
+                              <strong>{{ item.type }}:</strong>
+                              {{ item.damage }}
+                            </li>
+                            <hr>
+                            }
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card-footer text-end">
+                  Id: {{ arma.id }}
+                </div>
+              </div>
+            </div>
+          </div>
+          } @placeholder (minimum 500ms) {
+          <h2 class="text-center text-primary">Loading ...</h2>
+          }
+          

@@ -5,6 +5,14 @@ export interface InterfaceCartas {
         count: number
         totalCount: number
       }
+
+      export interface InterfaceCarta {
+        data: Card
+        page: number
+        pageSize: number
+        count: number
+        totalCount: number
+      }
       
       export interface Card {
         id: string

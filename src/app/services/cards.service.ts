@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { InterfaceCartas } from '../common/interface-cartas';
+import { InterfaceCartas, InterfaceCarta } from '../common/interface-cartas';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,9 @@ export class CardsService {
 
   getCards() : Observable<InterfaceCartas> {
     return this.http.get<InterfaceCartas>(this.URL);
+  }
+
+  getCard(id: number): Observable<InterfaceCarta> {
+    return this.http.get<InterfaceCarta>(this.URL+id);
   }
 }

@@ -1,1 +1,134 @@
-<p>pokemon-detail works!</p>
+@defer (when card) {
+    <div class="card shadow mt-5">
+      <div class="card-header bg-primary-subtle">
+        <div class="card-title text-center py-2 px-1">
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <h5>{{ card.name }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <img
+            class="img-fluid p-3"
+            src="{{ card.images.small }}"
+            alt="{{ card.name }}"
+          />
+        </div>
+        <div class="col-md-4">
+          <div class="card-body">
+            <p class="card-text">
+                <strong>Name: </strong>
+                <span class="text-primary">{{ card.name }}</span>
+              </p>
+              <p class="card-text">
+                <strong>Set Name: </strong>
+                <span class="text-primary">{{ card.set.name }}</span>
+              </p>
+              <p class="card-text">
+                <strong>Release Date:: </strong>
+                <span class="text-primary">{{ card.set.releaseDate }}</span>
+              </p>
+              <p class="card-text">
+                <strong>HP: </strong>
+                <span class="text-primary">{{ card.hp }}</span>
+              </p>
+              <p class="card-text">
+                <strong>Artist: </strong>
+                <span class="text-primary">{{ card.artist }}</span>
+              </p>
+              <p class="card-text">
+                <strong>Logo: </strong>
+                <img class="img-fluid p-3 w-25" src="{{ card.set.images.symbol }}" alt="{{ card.name }}"/>
+              </p>
+          </div>
+        </div>
+
+        <!-- acordeon 1 -->
+        <div class="col-md-4">
+          <div class="card-body">
+
+            <div class="accordion" id="accordionAttacks">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseAttacks"
+                    aria-expended="false"
+                    aria-controls="collapseAttacks">
+                    Attacks
+                  </button>
+                </h2>
+                <div
+                  id="collapseAttacks"
+                  class="accordion-collapse collapse">
+
+                  <div class="accordion-body overflow-y-scroll">
+                    <ul>
+                      @for (item of card.attacks; track item) {
+                      <li class="list-group-item small">
+                        <strong>{{ item.name }}:</strong>
+                        {{ item.text }}
+                      </li>
+                      <hr>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- acordeon 2 -->
+            <div class="accordion mt-3" id="accordionResistances">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseResistances"
+                      aria-expanded="false"
+                      aria-controls="collapseResistances">
+                      Resistances
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseResistances"
+                    class="accordion-collapse collapse"
+                  >
+                    <div class="accordion-body overflow-y-scroll">
+                      <ul>
+                        @for (item of card.resistances; track item) {
+                        <li class="list-group-item small">
+                          <strong>{{ item.type }}:</strong>
+                          {{ item.value }}
+                        </li>
+                        <hr>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+
+          </div>
+        </div>
+
+        
+        <div class="col-12">
+          <div class="card-footer text-end">
+            {{ card.rarity }}
+          </div>
+        </div>
+      </div>
+    </div>
+    } @placeholder (minimum 500ms) {
+    <h2 class="text-center text-primary">Loading ...</h2>
+    }
+    
