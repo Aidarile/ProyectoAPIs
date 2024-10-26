@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Personaje } from '../common/interface-personajes';
+import { InterfacePersonajes, Personaje } from '../common/interface-personajes';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,11 @@ export class CharactersService {
 
   constructor() { }
 
-  getCharacters() : Observable<Personaje[]> {
-    return this.http.get<Personaje[]>(this.URL);
+  getCharacters() : Observable<InterfacePersonajes> {
+    return this.http.get<InterfacePersonajes>(this.URL);
+  }
+
+  getCharacter(id:number) : Observable<Personaje> {
+    return this.http.get<Personaje>(this.URL+id);
   }
 }

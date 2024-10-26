@@ -2,11 +2,12 @@ import { Component, inject, NgModule } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
 import { Personaje } from '../../common/interface-personajes';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-personajes',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './personajes.component.html',
   styleUrl: './personajes.component.css'
 })

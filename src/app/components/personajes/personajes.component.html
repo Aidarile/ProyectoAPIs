@@ -1,11 +1,11 @@
-@defer (when personajes) {
+@defer (when personajes.length > 0) {
   <div class="container-fluid p-5">
     <div class="row justify-content-center">
         <h1 class="text-center">Final Space</h1>
 
         @for (personaje of personajes; track personaje.id) {
           <div class="col-xl-2 col-lg-4 col-md-6 col-sm-7 my-4">
-            <div class="card">
+            <div class="card" [routerLink]="'/finalspace-detail/' + personaje.id">
                 <img [src]="personaje.img_url" class="card-img-top" [alt]="personaje.name">
                 <div class="card-body">
                   <h5 class="card-title text-center"><strong>{{personaje.name}}</strong></h5>                  

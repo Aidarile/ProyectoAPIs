@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './armas.component.css'
 })
 export class ArmasComponent {
-  private weaponService : WeaponsService = inject(WeaponsService);
+  private readonly weaponService : WeaponsService = inject(WeaponsService);
   armas: Arma[] = [];
 
   constructor() {
