@@ -1,128 +1,105 @@
 @defer (when character) {
-    <div class="card shadow mt-5">
-      <div class="card-header bg-primary-subtle">
-        <div class="card-title text-center py-2 px-1">
-          <div class="row justify-content-center">
-            <div class="col-10">
-              <h5>{{ character.name }}</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <img
-            class="img-fluid p-3"
-            src="{{ character.img_url }}"
-            alt="{{ character.name }}"
-          />
-        </div>
-        <div class="col-md-4">
-          <div class="card-body">
-            <p class="card-text">
-                <strong>Name: </strong>
-                <span class="text-primary">{{ character.name }}</span>
-              </p>
-              <p class="card-text">
-                <strong>Status: </strong>
-                <span class="text-primary">{{ character.status }}</span>
-              </p>
-              <p class="card-text">
-                <strong>Origin: </strong>
-                <span class="text-primary">{{ character.origin }}</span>
-              </p>
-              <p class="card-text">
-                <strong>Gender: </strong>
-                <span class="text-primary">{{ character.gender }}</span>
-              </p>
-              <p class="card-text">
-                <strong>Hair: </strong>
-                <span class="text-primary">{{ character.hair }}</span>
-              </p>
-          </div>
-        </div>
-
-        <!-- acordeon 1 -->
-        <div class="col-md-4">
-          <div class="card-body">
-
-            <div class="accordion" id="accordionAlias">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseAlias"
-                    aria-expended="false"
-                    aria-controls="collapseAlias">
-                    Alias
-                  </button>
-                </h2>
-                <div
-                  id="collapseAlias"
-                  class="accordion-collapse collapse">
-
-                  <div class="accordion-body overflow-y-scroll">
-                    <ul>
-                      @for (alias of character.alias; track alias) {
-                      <li class="list-group-item small">
-                        {{ alias }}
-                      </li>
-                      <hr>
-                      }
-                    </ul>
-                  </div>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="card shadow">
+          <div class="card-header bg-secondary-subtle">
+            <div class="card-title text-center py-2 px-1">
+              <div class="row justify-content-center">
+                <div class="col-10">
+                  <h5><strong>{{ character.name }}</strong></h5>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <img class="img-fluid p-3" src="{{ character.img_url }}" alt="{{ character.name }}" />
+            </div>
+            <div class="col-md-4">
+              <div class="card-body">
+                <p class="card-text">
+                  <strong>Name: </strong>
+                  <span class="text-secondary">{{ character.name }}</span>
+                </p>
+                <p class="card-text">
+                  <strong>Status: </strong>
+                  <span class="text-secondary">{{ character.status }}</span>
+                </p>
+                <p class="card-text">
+                  <strong>Origin: </strong>
+                  <span class="text-secondary">{{ character.origin }}</span>
+                </p>
+                <p class="card-text">
+                  <strong>Gender: </strong>
+                  <span class="text-secondary">{{ character.gender }}</span>
+                </p>
+                <p class="card-text">
+                  <strong>Hair: </strong>
+                  <span class="text-secondary">{{ character.hair }}</span>
+                </p>
+              </div>
+            </div>
 
-        <!-- acordeon 2 -->
-            <div class="accordion mt-3" id="accordionAbilities">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseAbilities"
-                      aria-expanded="false"
-                      aria-controls="collapseAbilities">
-                      Abilities
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseAbilities"
-                    class="accordion-collapse collapse"
-                  >
-                    <div class="accordion-body overflow-y-scroll">
-                      <ul>
-                        @for (abilities of character.abilities; track abilities) {
-                        <li class="list-group-item small">
-                          {{ abilities }}
-                        </li>
-                        <hr>
-                        }
-                      </ul>
+            <!-- acordeón 1 -->
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="accordion custom-accordion" id="accordionAlias">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlias" aria-expended="false" aria-controls="collapseAlias">
+                        <strong>Alias</strong>
+                      </button>
+                    </h2>
+                    <div id="collapseAlias" class="accordion-collapse collapse">
+                      <div class="accordion-body custom-accordion-body overflow-y-scroll">
+                        <ul>
+                          @for (alias of character.alias; track alias) {
+                          <li class="list-group-item small">
+                            {{ alias }}
+                          </li>
+                          <hr>
+                          }
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- acordeón 2 -->
+                <div class="accordion mt-3 custom-accordion" id="accordionAbilities">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbilities" aria-expanded="false" aria-controls="collapseAbilities">
+                        <strong>Abilities</strong>
+                      </button>
+                    </h2>
+                    <div id="collapseAbilities" class="accordion-collapse collapse">
+                      <div class="accordion-body custom-accordion-body overflow-y-scroll">
+                        <ul>
+                          @for (abilities of character.abilities; track abilities) {
+                          <li class="list-group-item small">
+                            {{ abilities }}
+                          </li>
+                          <hr>
+                          }
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              
-
-          </div>
-        </div>
-
-        
-        <div class="col-12">
-          <div class="card-footer text-end">
-            Id: {{ character.id }}
+            </div>
+            <div class="col-12">
+              <div class="card-footer text-end">
+                <strong>Id: </strong>{{ character.id }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    } @placeholder (minimum 500ms) {
-    <h2 class="text-center text-primary">Loading ...</h2>
-    }
-    
+  </div>
+} @placeholder (minimum 500ms) {
+  <h2 class="text-center text-secondary">Loading ...</h2>
+}

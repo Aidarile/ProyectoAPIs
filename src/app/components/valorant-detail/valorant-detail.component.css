@@ -1,3 +1,14 @@
-.accordion-body {
-    max-height: 31vh;
+.custom-accordion .accordion-button {
+    background-color: rgb(188, 157, 218); 
+    color: #ffffff;
 }
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color:  rgb(188, 157, 218); 
+}
+
+.custom-accordion .accordion-body {
+    background-color: #e9ecef;
+    color: #333;
+}
+

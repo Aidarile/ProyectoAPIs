@@ -1,10 +1,13 @@
 @defer (when arma) {
-    <div class="card shadow mt-5">
-        <div class="card-header bg-primary-subtle">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="card shadow">
+          <div class="card-header bg-secondary-subtle">
             <div class="card-title text-center py-2 px-1">
-                <div class="row justify-content-center">
-                    <div class="col-10">
-                        <h5> {{arma.name}} </h5>
+              <div class="row justify-content-center">
+                <div class="col-10">
+                        <h5><strong>{{arma.name}}</strong></h5>
                     </div>
                 </div>
             </div>
@@ -17,21 +20,21 @@
                 <div class="card-body">
                     <p class="card-text">
                         <strong>Weapon type: </strong>
-                        <span class="text-primary"> {{arma.type}} </span>
+                        <span class="text-secondary"> {{arma.type}} </span>
                     </p>
                     <p class="card-text">
                         <strong>Rarity: </strong>
-                        <span class="text-primary"> {{arma.rarity}} </span>
+                        <span class="text-secondary"> {{arma.rarity}} </span>
                     </p>
                     <p class="card-text">
                         <strong>Attack: </strong>
-                        <span class="text-primary"> {{arma.attack.display}} </span>
+                        <span class="text-secondary"> {{arma.attack.display}} </span>
                     </p>                    
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card-body">
-                  <div class="accordion" id="accordionLoc">
+                  <div class="accordion custom-accordion" id="accordionLoc">
                     <div class="accordion-item">
                       <h2 class="accordion-header">
                         <button
@@ -41,7 +44,7 @@
                           data-bs-target="#collapseAcc"
                           aria-expended="false"
                           aria-controls="collapseAcc">
-                          Elements
+                          <strong>Elements</strong>
                         </button>
                       </h2>
                       <div
@@ -67,12 +70,15 @@
               </div>
               <div class="col-12">
                 <div class="card-footer text-end">
-                  Id: {{ arma.id }}
+                  <strong>Id: </strong> {{ arma.id }}
                 </div>
               </div>
             </div>
           </div>
+      </div>
+    </div>
+  </div>
           } @placeholder (minimum 500ms) {
-          <h2 class="text-center text-primary">Loading ...</h2>
+          <h2 class="text-center text-secondary">Loading ...</h2>
           }
           

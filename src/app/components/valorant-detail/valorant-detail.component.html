@@ -1,10 +1,13 @@
 @defer (when agent) {
-<div class="card shadow mt-5">
-  <div class="card-header bg-primary-subtle">
-    <div class="card-title text-center py-2 px-1">
-      <div class="row justify-content-center">
-        <div class="col-10">
-          <h5>{{ agent.displayName }}</h5>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="card shadow">
+          <div class="card-header bg-secondary-subtle">
+            <div class="card-title text-center py-2 px-1">
+              <div class="row justify-content-center">
+                <div class="col-10">
+          <h5><strong>{{ agent.displayName }}</strong></h5>
         </div>
       </div>
     </div>
@@ -21,32 +24,34 @@
       <div class="card-body">
         <p class="card-text">
           <strong>Developer Name: </strong>
-          <span class="text-primary">{{ agent.developerName }}</span>
+          <span class="text-secondary">{{ agent.developerName }}</span>
         </p>
         <p class="card-text">
           <strong>Description: </strong>
-          <span class="text-primary">{{ agent.description }}</span>
+          <span class="text-secondary">{{ agent.description }}</span>
         </p>
       </div>
     </div>
+
+    <!-- acordeón -->
     <div class="col-md-4">
       <div class="card-body">
-        <div class="accordion" id="accordionLoc">
+        <div class="accordion custom-accordion" id="accordionAbilities">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
                 class="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseAcc"
+                data-bs-target="#collapseAbilities"
                 aria-expended="false"
-                aria-controls="collapseAcc">
-                Habilidades
+                aria-controls="collapseAbilities">
+                <strong>Abilities</strong>
               </button>
             </h2>
             <div
-              id="collapseAcc"
-              data-bs-parent="#accordionLoc"
+              id="collapseAbilities"
+              data-bs-parent="#accordionAbiilities"
               class="accordion-collapse collapse"
             >
               <div class="accordion-body overflow-y-scroll">
@@ -67,11 +72,14 @@
     </div>
     <div class="col-12">
       <div class="card-footer text-end">
-        {{ agent.uuid }}
+        <strong>Id: </strong>{{ agent.uuid }}
       </div>
     </div>
   </div>
 </div>
+      </div>
+    </div>
+  </div>
 } @placeholder (minimum 500ms) {
-<h2 class="text-center text-primary">Loading ...</h2>
+<h2 class="text-center text-secondary">Loading ...</h2>
 }

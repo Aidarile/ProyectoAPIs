@@ -1,10 +1,13 @@
 @defer (when card) {
-    <div class="card shadow mt-5">
-      <div class="card-header bg-primary-subtle">
-        <div class="card-title text-center py-2 px-1">
-          <div class="row justify-content-center">
-            <div class="col-10">
-              <h5>{{ card.name }}</h5>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10">
+        <div class="card shadow">
+          <div class="card-header bg-secondary-subtle">
+            <div class="card-title text-center py-2 px-1">
+              <div class="row justify-content-center">
+                <div class="col-10">
+              <h5><strong>{{ card.name }}</strong></h5>
             </div>
           </div>
         </div>
@@ -21,23 +24,23 @@
           <div class="card-body">
             <p class="card-text">
                 <strong>Name: </strong>
-                <span class="text-primary">{{ card.name }}</span>
+                <span class="text-secondary">{{ card.name }}</span>
               </p>
               <p class="card-text">
                 <strong>Set Name: </strong>
-                <span class="text-primary">{{ card.set.name }}</span>
+                <span class="text-secondary">{{ card.set.name }}</span>
               </p>
               <p class="card-text">
                 <strong>Release Date:: </strong>
-                <span class="text-primary">{{ card.set.releaseDate }}</span>
+                <span class="text-secondary">{{ card.set.releaseDate }}</span>
               </p>
               <p class="card-text">
                 <strong>HP: </strong>
-                <span class="text-primary">{{ card.hp }}</span>
+                <span class="text-secondary">{{ card.hp }}</span>
               </p>
               <p class="card-text">
                 <strong>Artist: </strong>
-                <span class="text-primary">{{ card.artist }}</span>
+                <span class="text-secondary">{{ card.artist }}</span>
               </p>
               <p class="card-text">
                 <strong>Logo: </strong>
@@ -50,7 +53,7 @@
         <div class="col-md-4">
           <div class="card-body">
 
-            <div class="accordion" id="accordionAttacks">
+            <div class="accordion custom-accordion" id="accordionAttacks">
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
@@ -60,7 +63,7 @@
                     data-bs-target="#collapseAttacks"
                     aria-expended="false"
                     aria-controls="collapseAttacks">
-                    Attacks
+                    <strong>Attacks</strong>
                   </button>
                 </h2>
                 <div
@@ -83,7 +86,7 @@
             </div>
 
 <!-- acordeon 2 -->
-            <div class="accordion mt-3" id="accordionResistances">
+            <div class="accordion mt-3 custom-accordion" id="accordionResistances">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
                     <button
@@ -93,7 +96,7 @@
                       data-bs-target="#collapseResistances"
                       aria-expanded="false"
                       aria-controls="collapseResistances">
-                      Resistances
+                      <strong>Resistances</strong>
                     </button>
                   </h2>
                   <div
@@ -113,22 +116,20 @@
                     </div>
                   </div>
                 </div>
-              </div>
-
-              
-
+              </div>           
           </div>
         </div>
-
-        
-        <div class="col-12">
+            <div class="col-12">
           <div class="card-footer text-end">
-            {{ card.rarity }}
+            <strong>{{ card.rarity }}</strong>
           </div>
         </div>
       </div>
     </div>
+      </div>
+    </div>
+  </div>
     } @placeholder (minimum 500ms) {
-    <h2 class="text-center text-primary">Loading ...</h2>
+    <h2 class="text-center text-secondary">Loading ...</h2>
     }
     

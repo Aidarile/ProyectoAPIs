@@ -22,8 +22,10 @@
   } -->
 
 @defer (when armas.length > 0) {
-  <div class="row">
-    
+  <div class="container-fluid p-5">
+    <div class="row justify-content-center">
+        <h1 class="text-center">Monster Hunter Weapons</h1>
+
     @for (arma of armas; track arma.id) {
       <div class="col-md-3 my-2">
         <div class="card" [routerLink]="'/monsterhunter-detail/' + arma.id">
@@ -59,4 +61,7 @@
       </div>
     }
   </div>
-}
+  </div>
+} @placeholder (minimum 500ms) {
+  <h2 class="text-center text-secondary">Loading ...</h2>
+  }
