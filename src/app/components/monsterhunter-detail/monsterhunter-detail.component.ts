@@ -1,11 +1,12 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Arma } from '../../common/interface-armas';
 import { WeaponsService } from '../../services/weapons.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-monsterhunter-detail',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './monsterhunter-detail.component.html',
   styleUrl: './monsterhunter-detail.component.css'
 })

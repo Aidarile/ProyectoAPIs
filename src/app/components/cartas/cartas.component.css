@@ -15,3 +15,7 @@
   .card {
     border-radius: 18px;
   }
+
+  .text-white {
+    color: white;
+  }

@@ -23,13 +23,17 @@
                         <span class="text-secondary"> {{arma.type}} </span>
                     </p>
                     <p class="card-text">
-                        <strong>Rarity: </strong>
-                        <span class="text-secondary"> {{arma.rarity}} </span>
-                    </p>
+                      <strong>Attack: </strong>
+                      <span class="text-secondary"> {{arma.attack.display}} </span>
+                  </p>    
                     <p class="card-text">
-                        <strong>Attack: </strong>
-                        <span class="text-secondary"> {{arma.attack.display}} </span>
-                    </p>                    
+                        <strong>Rarity: </strong>
+                        <span class= "badge" [ngClass]="{'bg-success': arma.rarity===1 || arma.rarity===2,
+            'bg-danger': arma.rarity===3 || arma.rarity===4,
+            'bg-info': arma.rarity===5 || arma.rarity===6,
+            'bg-warning': arma.rarity===7 || arma.rarity===8}">
+            {{arma.rarity}}</span> 
+                    </p>                           
                 </div>
             </div>
             <div class="col-md-4">
