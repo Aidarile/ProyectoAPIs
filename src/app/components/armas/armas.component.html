@@ -26,6 +26,26 @@
     <div class="row justify-content-center">
         <h1 class="text-center text-white">Monster Hunter Weapons</h1>
 
+        <!-- INICIO PAGINACION -->
+
+        <div class="row justify-content-center">
+          <div class="col-md-2">
+
+            <ngb-pagination
+            [collectionSize]="1306"
+            [pageSize]="20"
+            [(page)]="currentPage"
+            [ellipses]="true"
+            [maxSize]="5"
+            [rotate]="true"
+            (pageChange)="loadWeapons()"
+            [boundaryLinks]="true"> </ngb-pagination>
+            
+          </div>
+        </div>
+
+        <!-- FIN PAGINACION -->
+
     @for (arma of armas; track arma.id) {
       <div class="col-md-3 my-2">
         <div class="card" [routerLink]="'/monsterhunter-detail/' + arma.id">

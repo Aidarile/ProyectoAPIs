@@ -17,6 +17,14 @@ export class WeaponsService {
   }
 
   getWeapon(id: number): Observable<Arma> {
-    return this.http.get<Arma>(this.URL+id);
+    return this.http.get<Arma>(this.URL + id);
+  }
+
+  getWeaponsByPage(page: number): Observable<InterfaceArmas> {
+    const max = (page * 20);
+    const min = (max - 19);
+
+    return this.http.get<InterfaceArmas>(this.URL + '?q={"id":{"$gte":' +min+ ',"$lte":'+max+ '}}');
+
   }
 }

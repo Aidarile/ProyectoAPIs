@@ -19,4 +19,8 @@ export class CardsService {
   getCard(id: number): Observable<InterfaceCarta> {
     return this.http.get<InterfaceCarta>(this.URL+id);
   }
+
+  getCardsByPage(page: number) : Observable<InterfaceCartas> {
+    return this.http.get<InterfaceCartas>(this.URL + '?page=' + page + '&pageSize=20');
+  }
 }
